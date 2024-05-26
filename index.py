@@ -66,4 +66,4 @@ def solve(a,b,r,h,ort,dast,lyam,sig_oquv,p,govaklik,sxema=1):
         f2 = (I_1_b*D_a-I_1_a*D_b)/(I_1_b*K_1_a-I_1_a*K_1_b)
         z+=h/10;
         govaklik+=math.cos(math.pi*n*(z/h))*p*math.sqrt(alfa)/p_dif*(f1*I_0_r-f2*K_0_r);
-    return math.abs(govaklik)
+    return abs(govaklik)
