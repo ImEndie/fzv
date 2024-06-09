@@ -30,10 +30,16 @@ app.add_middleware(
 
 @app.post("/solve/")
 async def solve_math(data: FuncData):
-    data_dict=data.dict()
-    print(data_dict.get("sxema"))
-    r=solve(data_dict["a"],data_dict["b"],data_dict["r"],data_dict["h"],data_dict["ort"],data_dict["dast"],data_dict["lyam"],data_dict["sig_oquv"],data_dict["p"],data_dict.get("sxema"))
-    print(r)
-    return {
-        "result": r
-    }
+    try:
+        data_dict=data.dict()
+        print(data_dict.get("sxema"))
+        r=solve(data_dict["a"],data_dict["b"],data_dict["r"],data_dict["h"],data_dict["ort"],data_dict["dast"],data_dict["lyam"],data_dict["sig_oquv"],data_dict["p"],data_dict.get("sxema"))
+        print(r)
+        return {
+            "result": r
+        }
+    except Exception as e:
+        print(e)
+        return {
+            "error": e
+        }
