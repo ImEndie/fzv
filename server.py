@@ -30,6 +30,7 @@ app.add_middleware(
 
 @app.post("/solve/")
 async def solve_math(data: FuncData):
+    print(data)
     try:
         data_dict=data.dict()
         print(data_dict.get("sxema"))
